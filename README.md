@@ -1,9 +1,13 @@
-# BlockScan - Ethereum Block Explorer
+# Chain Surge - Ethereum Block Explorer
 
-Blockscan gives you the latest blocks and transactions mined on the Ethereum network. You can enter any Ethereum address on the search bar to get the ETH balance in real time. The app also shows the latest Gas price on the network.
+Chain Surge is an Ethereum block explorer web application offering users a comprehensive and intuitive interface for seamless exploration of the Ethereum blockchain.
 
-The project is made using React + Vite and uses alchemy-sdk and ethers.js library to pull the data from the Ethereum network.
+Benefiting from real-time data updates, effortlessly navigate through blocks, transactions, and addresses to gain valuable insights into the network's dynamic activity.
 
-You can check out the live app here - https://chainsurge.netlify.app/
+Whether you're keen on monitoring Ethereum prices or checking gas prices, Chain Surge serves as your go-to tool, providing a rich and smooth Ethereum exploration experience.
+
+Developed with React.js for the front-end, Chain Surge leverages Alchemy SDK, Ethers.js library, and CoinCap API to pull data from the network.
+
+Check the live app here - https://chainsurge.netlify.app/
 
 Cheers🍻
