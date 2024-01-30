@@ -3,6 +3,7 @@
 :root {
   --color-brand--1: #066a9c;
   --color-brand--2: #081d35;
+  --color-brand--3: #3ea2d4;
   --color-bg: #fcfcfe;
 
   --color-dark--0: #000000;
@@ -63,7 +64,7 @@ hr {
 }
 
 section {
-  padding: 2rem 9.38rem 6rem 9.38rem;
+  padding: 30px 150px 20px 150px;
   background: var(--color-bg);
 }
 
@@ -77,4 +78,8 @@ section h3 {
 .customLink {
   text-decoration: none;
   color: var(--color-brand--1);
+}
+
+.customLink:hover {
+  color: var(--color-brand--3);
 }
