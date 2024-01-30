@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
+import NavBar from "./components/NavBar";
+import Homepage from "./pages/Homepage";
+import BlockDetailsPage from "./pages/BlockDetailsPage";
+import TransactionDetailsPage from "./pages/TransactionDetailsPage";
+import AddressDetailsPage from "./pages/AddressDetailsPage";
+import { RecentDataProvider } from "./contexts/RecentDataContext";
+import { FetchDataProvider } from "./contexts/FetchDataContext";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <RecentDataProvider>
+        <FetchDataProvider>
+          <BrowserRouter>
+            <NavBar />
+            <HeroSection />
+            <Routes>
+              <Route index element={<Homepage />} />
+              <Route path="block/:blockNumber" element={<BlockDetailsPage />} />
+              <Route
+                path="transaction/:txnHash"
+                element={<TransactionDetailsPage />}
+              />
+              <Route path="address/:address" element={<AddressDetailsPage />} />
+            </Routes>
+          </BrowserRouter>
+          <Footer />
+        </FetchDataProvider>
+      </RecentDataProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
