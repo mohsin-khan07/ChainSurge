@@ -1,8 +1,9 @@
-# React + Vite
+# BlockScan - Ethereum Block Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Blockscan gives you the latest blocks and transactions mined on Ethereum network. You can enter any Ethereum address on search bar to get ETH balance in real-time. The app also shows the latest Gas price on the network.
 
-Currently, two official plugins are available:
+The project is made using React + Vite and uses alchemy-sdk and ethers.js library to pull the data from Ethereum network.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can check out the live app here - https://ethblockexplorer.netlify.app/
+
+Cheers🍻
