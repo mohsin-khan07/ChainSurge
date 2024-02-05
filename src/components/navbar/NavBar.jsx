@@ -1,11 +1,10 @@
 import { Utils } from "alchemy-sdk";
 import { useRecentData } from "../../contexts/RecentDataContext";
-import styles from "./NavBar.module.css";
 import NavElement from "./NavElement";
 
 function NavBar() {
   return (
-    <div className={styles.nav}>
+    <div className="hidden sm:flex sm:py-4 sm:items-center sm:justify-center">
       <NavBox />
     </div>
   );
@@ -17,7 +16,7 @@ function NavBox() {
   const gasPriceInGwei = gasPrice ? Utils.formatUnits(gasPrice, "gwei") : "..";
 
   return (
-    <div className={styles.navBox}>
+    <div className="flex gap-12 items-center">
       <NavElement
         imgSrc={"ethIcon.svg"}
         title="ETH Price"

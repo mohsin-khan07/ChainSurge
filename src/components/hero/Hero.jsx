@@ -1,14 +1,13 @@
-import styles from "./HeroSection.module.css";
 import Logo from "./Logo";
 import SearchQuery from "./SearchQuery";
 
-function HeroSection() {
+function Hero() {
   return (
-    <div className={styles.hero}>
+    <div className="grid gap-8 bg-secondary py-12 justify-center">
       <Logo />
       <SearchQuery />
     </div>
   );
 }
 
-export default HeroSection;
+export default Hero;

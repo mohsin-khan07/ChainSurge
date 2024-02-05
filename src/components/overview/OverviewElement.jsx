@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import styles from "./OverviewElement.module.css";
 
 function OverviewElement({ imgSrc, title, value }) {
   return (
-    <div className={styles.element}>
-      <img src={imgSrc} alt="icon" />
-      <div className={styles.box}>
-        <span className={styles.title}>{title}</span>
-        <span className={styles.value}>{value}</span>
+    <div className="flex justify-between gap-5 items-center py-5">
+      <img src={imgSrc} alt="icon" className="w-6 h-6" />
+      <div className="flex justify-between w-full text-lg">
+        <span className="text-xl uppercase">{title}</span>
+        <span className="font-medium text-right text-primary">{value}</span>
       </div>
     </div>
   );

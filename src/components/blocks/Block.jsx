@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import styles from "./Block.module.css";
 import { Link } from "react-router-dom";
 import { useFetchedData } from "../../contexts/FetchDataContext";
 
@@ -28,9 +27,9 @@ function Block({ blockNumber }) {
   const seconds = date.getSeconds();
 
   return (
-    <li className={styles.block}>
-      <img src="blockBox.svg" alt="Block" className={styles.icon} />
-      <div className={styles.content}>
+    <li className="flex justify-between py-3 items-center gap-3.5">
+      <img src="blockBox.svg" alt="Block" className="w-10 h-10" />
+      <div className="flex justify-between w-full">
         {blockNumber <= 10 ? (
           <span>Loading...</span>
         ) : (
@@ -39,13 +38,13 @@ function Block({ blockNumber }) {
           </Link>
         )}
         {transactions === null ? (
-          <span className={styles.txns}>Loading...</span>
+          <span>Loading...</span>
         ) : (
-          <span className={styles.txns}>
-            {transactions.length} transactions
-          </span>
+          <span>{transactions.length} transactions</span>
         )}
-        <span className={styles.timestamp}>{seconds} secs ago</span>
+        <span className="text-dark2 text-right font-light">
+          {seconds} secs ago
+        </span>
       </div>
     </li>
   );

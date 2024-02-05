@@ -1,28 +1,27 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import styles from "./Transaction.module.css";
 
 function Transaction({ transaction }) {
   return (
-    <div className={styles.transaction}>
+    <div className="flex justify-between py-3 items-center gap-3.5">
       <img
         src="transaction.svg"
         alt="Transaction Receipt"
-        className={styles.icon}
+        className="w-10 h-10"
       />
-      <div className={styles.content}>
+      <div className="flex justify-between w-full">
         <Link className="customLink" to={`transaction/${transaction.hash}`}>
           {transaction.hash.slice(0, 9)}...
         </Link>
         <div>
-          <span className={styles.fromTo}>From </span>
-          <span className={styles.address}>
+          <span className="font-light">From </span>
+          <span className="font-medium">
             {transaction.from.slice(0, 7)}...{transaction.from.slice(-7)}
           </span>
         </div>
-        <div className={styles.to}>
-          <span className={styles.fromTo}>To </span>
-          <span className={styles.address}>
+        <div className="text-right">
+          <span className="font-light">To </span>
+          <span className="font-medium">
             {transaction.to.slice(0, 7)}...{transaction.to.slice(-7)}
           </span>
         </div>
