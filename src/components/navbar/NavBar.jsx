@@ -1,5 +1,5 @@
 import { Utils } from "alchemy-sdk";
-import { useRecentData } from "../contexts/RecentDataContext";
+import { useRecentData } from "../../contexts/RecentDataContext";
 import styles from "./NavBar.module.css";
 import NavElement from "./NavElement";
 

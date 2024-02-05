@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import styles from "./DetailsContainer.module.css";
 import { useEffect, useReducer } from "react";
-import DetailsRow from "./DetailsRow";
-import { useFetchedData } from "../contexts/FetchDataContext";
+import DetailsRow from "../DetailsRow";
+import { useFetchedData } from "../../contexts/FetchDataContext";
 
 const initialState = {
   timestamp: 0,

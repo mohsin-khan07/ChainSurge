@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Block.module.css";
 import { Link } from "react-router-dom";
-import { useFetchedData } from "../contexts/FetchDataContext";
+import { useFetchedData } from "../../contexts/FetchDataContext";
 
 function Block({ blockNumber }) {
   const { fetchBlockData } = useFetchedData();
