@@ -9,20 +9,20 @@ function Transaction({ transaction }) {
         alt="Transaction Receipt"
         className="w-10 h-10"
       />
-      <div className="flex justify-between w-full">
-        <Link className="customLink" to={`transaction/${transaction.hash}`}>
+      <div className="flex flex-col xxs:flex-row justify-between xxs:items-center w-full gap-3">
+        <Link className="link" to={`transaction/${transaction.hash}`}>
           {transaction.hash.slice(0, 9)}...
         </Link>
         <div>
           <span className="font-light">From </span>
           <span className="font-medium">
-            {transaction.from.slice(0, 7)}...{transaction.from.slice(-7)}
+            {transaction.from.slice(0, 4)}...{transaction.from.slice(-4)}
           </span>
         </div>
-        <div className="text-right">
+        <div className="xxs:text-right">
           <span className="font-light">To </span>
           <span className="font-medium">
-            {transaction.to.slice(0, 7)}...{transaction.to.slice(-7)}
+            {transaction.to.slice(0, 4)}...{transaction.to.slice(-4)}
           </span>
         </div>
       </div>

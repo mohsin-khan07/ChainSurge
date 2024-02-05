@@ -2,6 +2,23 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer components {
+  .link {
+    text-decoration: none;
+    color: #066a9c;
+  }
+
+  .link:hover {
+    color: #3ea2d4;
+  }
+}
+
+html {
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #fcfcfe;
+}
+
 /* :root {
   --color-brand--1: #066a9c;
   --color-brand--2: #081d35;
@@ -33,10 +50,7 @@
   box-sizing: inherit;
 }
 
-html {
-  font-size: var(--font-size--2);
-  box-sizing: border-box;
-}
+
 
 body {
   font-family: "Readex Pro", sans-serif;
@@ -76,12 +90,4 @@ section h3 {
   font-weight: 400;
   margin: 0rem 0rem 1.25rem 1rem;
 }
-
-.customLink {
-  text-decoration: none;
-  color: var(--color-brand--1);
-}
-
-.customLink:hover {
-  color: var(--color-brand--3);
-} */
+*/

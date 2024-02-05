@@ -5,6 +5,8 @@ import { RecentDataProvider } from "./contexts/RecentDataContext";
 import { FetchDataProvider } from "./contexts/FetchDataContext";
 import Hero from "./components/hero/Hero";
 import Homepage from "./pages/Homepage";
+import BlockDetails from "./pages/BlockDetails";
+import TransactionDetails from "./pages/TransactionDetails";
 
 function App() {
   return (
@@ -16,12 +18,12 @@ function App() {
             <Hero />
             <Routes>
               <Route index element={<Homepage />} />
-              {/* <Route path="block/:blockNumber" element={<BlockDetailsPage />} />
+              <Route path="block/:blockNumber" element={<BlockDetails />} />
               <Route
                 path="transaction/:txnHash"
-                element={<TransactionDetailsPage />}
+                element={<TransactionDetails />}
               />
-              <Route path="address/:address" element={<AddressDetailsPage />} /> */}
+              {/*<Route path="address/:address" element={<AddressDetailsPage />} /> */}
             </Routes>
           </BrowserRouter>
           <Footer />

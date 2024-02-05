@@ -8,10 +8,12 @@ function OverviewCard() {
 
   const gasPriceInGwei = gasPrice ? Utils.formatUnits(gasPrice, "gwei") : "..";
 
+  const elmentsCls = "grid w-full sm:w-2/4 gap-1 md:gap-3";
+
   return (
-    <div className="py-4 px-5 bg-white rounded-2xl mb-8 shadow-shadow">
-      <div className="flex items-center gap-7">
-        <div className="grid w-2/4 gap-4">
+    <div className="py-2 txns:py-4 px-5 bg-white rounded-2xl mb-8 shadow-shadow">
+      <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-7">
+        <div className={elmentsCls}>
           <OverviewElement
             imgSrc={"gasIcon.svg"}
             title="Gas Price"
@@ -25,7 +27,7 @@ function OverviewCard() {
           />
         </div>
         <Divider />
-        <div className="grid w-2/4 gap-4">
+        <div className={elmentsCls}>
           <OverviewElement
             imgSrc={"gasIcon.svg"}
             title="Gas Price"

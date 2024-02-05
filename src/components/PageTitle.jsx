@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import styles from "./PageTitle.module.css";
 
 function PageTitle({ title, value }) {
   return (
-    <div className={styles.title}>
-      <span>{title} </span>
-      <span className={styles.value}>#{value}</span>
+    <div className="mb-8 text-center text-2xl">
+      <span className="font-medium">{title} </span>
+      <span className="font-light text-dark2">#{value}</span>
     </div>
   );
 }

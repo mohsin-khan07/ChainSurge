@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import styles from "./DetailsContainer.module.css";
 import { useEffect, useReducer } from "react";
 import DetailsRow from "../DetailsRow";
 import { useFetchedData } from "../../contexts/FetchDataContext";
@@ -62,7 +61,7 @@ function BlockDetailsContainer({ blockNumber }) {
   }, [fetchBlockData, blockNumber]);
 
   return (
-    <div className={styles.container}>
+    <div className="py-4 px-5 bg-white rounded-2xl shadow-shadow">
       <DetailsRow title="Block Height" value={blockNumber} />
       <DetailsRow title="Timestamp" value={timestamp} />
       <DetailsRow title="Transactions" value={transactions.length} />

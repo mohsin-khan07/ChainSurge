@@ -17,6 +17,10 @@ export default {
       sans: "Readex Pro",
     },
     extend: {
+      screens: {
+        xxs: "405px",
+        xs: "500px",
+      },
       boxShadow: {
         shadow: "0px 0px 20px 5px rgba(0, 0, 0, 0.05)",
       },

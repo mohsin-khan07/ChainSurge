@@ -27,13 +27,13 @@ function Block({ blockNumber }) {
   const seconds = date.getSeconds();
 
   return (
-    <li className="flex justify-between py-3 items-center gap-3.5">
+    <li className="flex  justify-between py-3 items-center gap-3.5">
       <img src="blockBox.svg" alt="Block" className="w-10 h-10" />
-      <div className="flex justify-between w-full">
+      <div className="flex flex-col xxs:flex-row justify-between w-full">
         {blockNumber <= 10 ? (
           <span>Loading...</span>
         ) : (
-          <Link className="customLink" to={`block/${blockNumber}`}>
+          <Link className="link" to={`block/${blockNumber}`}>
             {blockNumber}
           </Link>
         )}
@@ -42,7 +42,7 @@ function Block({ blockNumber }) {
         ) : (
           <span>{transactions.length} transactions</span>
         )}
-        <span className="text-dark2 text-right font-light">
+        <span className="text-dark2 xxs:text-right font-light">
           {seconds} secs ago
         </span>
       </div>

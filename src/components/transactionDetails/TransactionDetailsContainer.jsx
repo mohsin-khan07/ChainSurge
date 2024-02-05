@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useReducer } from "react";
-import styles from "./DetailsContainer.module.css";
 import DetailsRow from "../DetailsRow";
 import { useFetchedData } from "../../contexts/FetchDataContext";
 
@@ -45,7 +44,7 @@ function TransactionDetailsContainer({ txnHash }) {
   }, [fetchTxnData, txnHash]);
 
   return (
-    <div className={styles.container}>
+    <div className="py-4 px-5 bg-white rounded-2xl shadow-shadow">
       <DetailsRow title="Transaction Hash" value={txnHash} />
       <DetailsRow title="Block" value={blockNumber} />
       <DetailsRow title="From" value={from} />

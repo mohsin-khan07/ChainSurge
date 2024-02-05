@@ -1,12 +1,10 @@
-import styles from "./Footer.module.css";
-
 function Footer() {
   return (
-    <div className={styles.footer}>
+    <div className="flex flex-col py-10 gap-4 justify-center items-center">
       <div>
         Made by{" "}
         <a
-          className="customLink"
+          className="link"
           href="https://twitter.com/khan_mohsin07"
           target="_blank"
           rel="noreferrer"
@@ -17,7 +15,7 @@ function Footer() {
       <div>
         Check out the{" "}
         <a
-          className="customLink"
+          className="link"
           href="https://github.com/mohsin-khan07/chain-surge"
           target="_blank"
           rel="noreferrer"
