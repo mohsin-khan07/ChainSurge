@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-function AddOverviewCard({ title, value }) {
+function AddrOverviewRow({ title, value }) {
   return (
     <div className="flex flex-col xs:flex-row justify-between text-lg">
       <span>{title}</span>
@@ -11,4 +11,4 @@ function AddOverviewCard({ title, value }) {
   );
 }
 
-export default AddOverviewCard;
+export default AddrOverviewRow;

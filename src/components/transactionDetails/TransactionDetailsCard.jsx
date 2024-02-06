@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useReducer } from "react";
+import { calcTxnData } from "../../libraries/transactionData";
 import DetailsRow from "../DetailsRow";
-import { useFetchedData } from "../../contexts/FetchDataContext";
 
 const initialState = {
   blockNumber: 0,
@@ -22,16 +22,15 @@ function reducer(state, action) {
   };
 }
 
-function TransactionDetailsContainer({ txnHash }) {
+function TransactionDetailsCard({ txnHash }) {
   const [{ blockNumber, from, to, value, gasPrice }, dispatch] = useReducer(
     reducer,
     initialState
   );
-  const { fetchTxnData } = useFetchedData();
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedData = await fetchTxnData(txnHash);
+      const fetchedData = await calcTxnData(txnHash);
       dispatch({
         blockNumber: fetchedData.blockNumber,
         from: fetchedData.from,
@@ -41,7 +40,7 @@ function TransactionDetailsContainer({ txnHash }) {
       });
     };
     fetchData();
-  }, [fetchTxnData, txnHash]);
+  }, [txnHash]);
 
   return (
     <div className="py-4 px-5 bg-white rounded-2xl shadow-shadow">
@@ -55,4 +54,4 @@ function TransactionDetailsContainer({ txnHash }) {
   );
 }
 
-export default TransactionDetailsContainer;
+export default TransactionDetailsCard;
