@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import HeroSection from "./components/HeroSection";
-import NavBar from "./components/NavBar";
-import Homepage from "./pages/Homepage";
-import BlockDetailsPage from "./pages/BlockDetailsPage";
-import TransactionDetailsPage from "./pages/TransactionDetailsPage";
-import AddressDetailsPage from "./pages/AddressDetailsPage";
+import NavBar from "./components/navbar/NavBar";
 import { RecentDataProvider } from "./contexts/RecentDataContext";
 import { FetchDataProvider } from "./contexts/FetchDataContext";
+import Hero from "./components/hero/Hero";
+import Homepage from "./pages/Homepage";
+import BlockDetails from "./pages/BlockDetails";
+import TransactionDetails from "./pages/TransactionDetails";
+import AddressOverview from "./pages/AddressOverview";
 
 function App() {
   return (
@@ -16,15 +16,15 @@ function App() {
         <FetchDataProvider>
           <BrowserRouter>
             <NavBar />
-            <HeroSection />
+            <Hero />
             <Routes>
               <Route index element={<Homepage />} />
-              <Route path="block/:blockNumber" element={<BlockDetailsPage />} />
+              <Route path="block/:blockNumber" element={<BlockDetails />} />
               <Route
                 path="transaction/:txnHash"
-                element={<TransactionDetailsPage />}
+                element={<TransactionDetails />}
               />
-              <Route path="address/:address" element={<AddressDetailsPage />} />
+              <Route path="address/:address" element={<AddressOverview />} />
             </Routes>
           </BrowserRouter>
           <Footer />
