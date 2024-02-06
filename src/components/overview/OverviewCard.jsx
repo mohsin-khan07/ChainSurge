@@ -1,7 +1,7 @@
 import { Utils } from "alchemy-sdk";
 import { useRecentData } from "../../contexts/RecentDataContext";
 import OverviewElement from "./OverviewElement";
-import Divider from "../Divider";
+import HLine from "../HLine";
 
 function OverviewCard() {
   const { gasPrice, recentBlockNumber } = useRecentData();
@@ -19,21 +19,21 @@ function OverviewCard() {
             title="Gas Price"
             value={`${gasPriceInGwei.slice(0, 5)} Gwei`}
           />
-          <Divider />
+          <HLine />
           <OverviewElement
             imgSrc={"gasIcon.svg"}
             title="Gas Price"
             value={`${gasPriceInGwei.slice(0, 5)} Gwei`}
           />
         </div>
-        <Divider />
+        <div className="border-l h-full text-light1"></div>
         <div className={elmentsCls}>
           <OverviewElement
             imgSrc={"gasIcon.svg"}
             title="Gas Price"
             value={`${gasPriceInGwei.slice(0, 5)} Gwei`}
           />
-          <Divider />
+          <HLine />
           <OverviewElement
             imgSrc={"block.svg"}
             title="Latest Block"

@@ -7,6 +7,7 @@ import Hero from "./components/hero/Hero";
 import Homepage from "./pages/Homepage";
 import BlockDetails from "./pages/BlockDetails";
 import TransactionDetails from "./pages/TransactionDetails";
+import AddressOverview from "./pages/AddressOverview";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
                 path="transaction/:txnHash"
                 element={<TransactionDetails />}
               />
-              {/*<Route path="address/:address" element={<AddressDetailsPage />} /> */}
+              <Route path="address/:address" element={<AddressOverview />} />
             </Routes>
           </BrowserRouter>
           <Footer />

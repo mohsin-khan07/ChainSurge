@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import AddOverviewCard from "./AddOverviewCard";
-import styles from "./AddOverviewContainer.module.css";
 import { useEffect, useState } from "react";
 import { useFetchedData } from "../../contexts/FetchDataContext";
 import { Utils } from "alchemy-sdk";
@@ -21,8 +20,9 @@ function AddOverviewContainer() {
   const balanceInEth = balance ? Utils.formatEther(balance) : "..";
 
   return (
-    <div className={styles.container}>
+    <div className="flex flex-col gap-6 py-6 txns:py-4 px-5 bg-white rounded-2xl mb-8 shadow-shadow">
       <AddOverviewCard title="ETHER BALANCE" value={`${balanceInEth} ETH`} />
+      <AddOverviewCard title="ETHER VALUE" value={`${balanceInEth} ETH`} />
     </div>
   );
 }
