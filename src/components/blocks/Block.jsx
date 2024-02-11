@@ -1,27 +1,20 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useFetchedData } from "../../contexts/FetchDataContext";
+import { calcBlockData } from "../../libraries/blockData";
 
 function Block({ blockNumber }) {
-  const { fetchBlockData } = useFetchedData();
-  const [transactions, setTransactions] = useState(null);
-  const [timestamp, setTimestamp] = useState(null);
+  const [transactions, setTransactions] = useState();
+  const [timestamp, setTimestamp] = useState();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        const fetchedData = await fetchBlockData(blockNumber);
-        setTransactions(fetchedData.transactions);
-        setTimestamp(fetchedData.timestamp);
-      } catch (error) {
-        console.log("Error fetching transactions: ", error.message);
-        throw error;
-      }
+    const getBlockData = async () => {
+      const blockData = await calcBlockData(blockNumber);
+      setTransactions(blockData.transactions);
+      setTimestamp(blockData.timestamp);
     };
-    fetchData();
-  }, [blockNumber, fetchBlockData]);
+    getBlockData();
+  }, [blockNumber]);
 
   const date = new Date(timestamp * 1000);
   const seconds = date.getSeconds();
@@ -30,21 +23,15 @@ function Block({ blockNumber }) {
     <li className="flex  justify-between py-3 items-center gap-3.5">
       <img src="blockBox.svg" alt="Block" className="w-10 h-10" />
       <div className="flex flex-col xxs:flex-row justify-between w-full">
-        {blockNumber <= 10 ? (
-          <span>Loading...</span>
-        ) : (
-          <Link className="link" to={`block/${blockNumber}`}>
-            {blockNumber}
-          </Link>
-        )}
-        {transactions === null ? (
-          <span>Loading...</span>
-        ) : (
-          <span>{transactions.length} transactions</span>
-        )}
-        <span className="text-dark2 xxs:text-right font-light">
-          {seconds} secs ago
-        </span>
+        <Link className="link" to={`block/${blockNumber}`}>
+          {blockNumber}
+        </Link>
+
+        <div>{transactions ? transactions.length : "..."} transactions</div>
+
+        <div className="text-dark2 xxs:text-right font-light">
+          {seconds ? seconds : "..."} secs ago
+        </div>
       </div>
     </li>
   );

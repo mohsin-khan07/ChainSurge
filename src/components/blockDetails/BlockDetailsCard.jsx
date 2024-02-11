@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useReducer } from "react";
+import { calcBlockData } from "../../libraries/blockData";
 import DetailsRow from "../DetailsRow";
-import { useFetchedData } from "../../contexts/FetchDataContext";
 
 const initialState = {
   timestamp: 0,
@@ -25,8 +25,7 @@ function reducer(state, action) {
   };
 }
 
-function BlockDetailsContainer({ blockNumber }) {
-  const { fetchBlockData } = useFetchedData();
+function BlockDetailsCard({ blockNumber }) {
   const [
     {
       timestamp,
@@ -43,7 +42,7 @@ function BlockDetailsContainer({ blockNumber }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedData = await fetchBlockData(Number(blockNumber));
+        const fetchedData = await calcBlockData(Number(blockNumber));
         dispatch({
           timestamp: fetchedData.timestamp,
           transactions: fetchedData.transactions,
@@ -58,7 +57,7 @@ function BlockDetailsContainer({ blockNumber }) {
       }
     };
     fetchData();
-  }, [fetchBlockData, blockNumber]);
+  }, [blockNumber]);
 
   return (
     <div className="py-4 px-5 bg-white rounded-2xl shadow-shadow">
@@ -74,4 +73,4 @@ function BlockDetailsContainer({ blockNumber }) {
   );
 }
 
-export default BlockDetailsContainer;
+export default BlockDetailsCard;

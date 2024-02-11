@@ -1,35 +1,32 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
+import { LatestBlockProvider } from "./contexts/LatestBlockContext";
 import NavBar from "./components/navbar/NavBar";
-import { RecentDataProvider } from "./contexts/RecentDataContext";
-import { FetchDataProvider } from "./contexts/FetchDataContext";
 import Hero from "./components/hero/Hero";
 import Homepage from "./pages/Homepage";
 import BlockDetails from "./pages/BlockDetails";
 import TransactionDetails from "./pages/TransactionDetails";
 import AddressOverview from "./pages/AddressOverview";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div>
-      <RecentDataProvider>
-        <FetchDataProvider>
-          <BrowserRouter>
-            <NavBar />
-            <Hero />
-            <Routes>
-              <Route index element={<Homepage />} />
-              <Route path="block/:blockNumber" element={<BlockDetails />} />
-              <Route
-                path="transaction/:txnHash"
-                element={<TransactionDetails />}
-              />
-              <Route path="address/:address" element={<AddressOverview />} />
-            </Routes>
-          </BrowserRouter>
-          <Footer />
-        </FetchDataProvider>
-      </RecentDataProvider>
+      <LatestBlockProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Hero />
+          <Routes>
+            <Route index element={<Homepage />} />
+            <Route path="block/:blockNumber" element={<BlockDetails />} />
+            <Route
+              path="transaction/:txnHash"
+              element={<TransactionDetails />}
+            />
+            <Route path="address/:address" element={<AddressOverview />} />
+          </Routes>
+        </BrowserRouter>
+      </LatestBlockProvider>
+      <Footer />
     </div>
   );
 }
