@@ -11,7 +11,7 @@ function LatestBlockProvider({ children }) {
   useEffect(() => {
     async function getRecentBlockNumber() {
       const blockNumber = await alchemy.core.getBlockNumber();
-      setRecentBlockNumber(() => blockNumber);
+      setRecentBlockNumber(blockNumber);
     }
     getRecentBlockNumber();
   }, []);
